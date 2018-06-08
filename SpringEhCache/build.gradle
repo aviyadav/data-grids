@@ -1,0 +1,20 @@
+apply plugin: 'java'
+
+sourceCompatibility = '1.8'
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+if (!hasProperty('mainClass')) {
+    ext.mainClass = 'org.sample.cache.ehcache.spring.main.App'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.10'
+    compile group: 'net.sf.ehcache', name: 'ehcache', version: '2.10.5'
+    compile group: 'org.springframework', name: 'spring-context', version: '5.0.6.RELEASE'
+    compile group: 'org.springframework', name: 'spring-context-support', version: '5.0.6.RELEASE'
+    compile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+}
